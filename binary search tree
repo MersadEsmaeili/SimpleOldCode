@@ -1,0 +1,32 @@
+# Binary Search Algorithm
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+# Get user input
+sorted_list = list(map(int, input("Enter a sorted list of numbers (space-separated): ").split()))
+target = int(input("Enter the target value to search for: "))
+
+# Sort the input list
+sorted_list.sort()
+
+# Perform binary search
+index = binary_search(sorted_list, target)
+
+# Output the result
+if index != -1:
+    print("Target value found at index:", index)
+else:
+    print("Target value not found in the list.")
